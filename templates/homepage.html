@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>虚拟画板 Virtual Painter</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/homepage.css')}}">
+    <script>
+        function shape1(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide1").style.display = "flex";
+        }
+        function shape2(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide2").style.display = "flex";
+        }
+        function shape3(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide3").style.display = "flex";
+        }
+        function shape4(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide4").style.display = "flex";
+        }
+        function shape5(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide5").style.display = "flex";
+        }
+        function shape6(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide6").style.display = "flex";
+        }
+
+        function return1(){
+            document.getElementById("hide1").style.display = "none";
+            document.getElementById("hide").style.display = "flex";
+        }
+        function return2(){
+            document.getElementById("hide2").style.display = "none";
+            document.getElementById("hide").style.display = "flex";
+        }
+        function return3(){
+            document.getElementById("hide3").style.display = "none";
+            document.getElementById("hide").style.display = "flex";
+        }
+        function return4(){
+            document.getElementById("hide4").style.display = "none";
+            document.getElementById("hide").style.display = "flex";
+        }
+        function return5(){
+            document.getElementById("hide5").style.display = "none";
+            document.getElementById("hide").style.display = "flex";
+        }
+        function return6(){
+            document.getElementById("hide6").style.display = "none";
+            document.getElementById("hide").style.display = "flex";
+        }
+
+        function hide(){
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("hide1").style.display = "none";
+            document.getElementById("hide2").style.display = "none";
+            document.getElementById("hide3").style.display = "none";
+            document.getElementById("hide4").style.display = "none";
+            document.getElementById("hide5").style.display = "none";
+            document.getElementById("hide6").style.display = "none";
+        }
+        function show(){
+            document.getElementById("hide").style.display = "flex";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <!-- 项目说明书 -->
+            <div class="register-box hidden" id = "hide">
+                <h1>使用说明书</h1>
+                <button type = "button" onclick="shape1()">初始</button>
+                <button type = "button" onclick="shape2()">彩笔</button>
+                <button type = "button" onclick="shape3()">形状</button>
+                <button type = "button" onclick="shape4()">粗细</button>
+                <button type = "button" onclick="shape5()">文本</button>
+                <button type = "button" onclick="shape6()">橡皮擦</button>
+                    <a href="execute">
+                        <button>start</button>
+                    </a>
+            </div>
+            <div class="register-box1 hidden" id = "hide1">
+                <h1>初始</h1>
+                <ul>
+                    <li>初始状态无法进行绘画。</li>
+                    <li>食指与中指伸直，其余弯曲（以下简称“双指”）时进入选择模式，保持双指状态，食指指尖移动到某个区域时，初始显示项目标题的可变工具栏部分变为相应区域对应的选项。
+                    只有食指向上伸直，其余四指弯曲（以下简称“单指”）时，进入绘画模式。</li>
+                    <li>当五指均向上且整个手掌都在画面中时，将擦除画面中的所有绘画。</li>
+                </ul>
+                <video width="350" height="300" controls="controls">
+                    <source src="static/intro/initial.mp4" type="video/mp4" />
+                </video>
+
+                    <button type = "button" onclick="return1()">返回</button>
+            </div>
+            <div class="register-box2 hidden" id = "hide2">
+                <h1>彩笔</h1>
+                <ul>
+                    <li>双指状态下，食指指尖移动到“彩笔”区域时，可变工具栏部分变为颜色选择，由食指指尖进入相应颜色区域进行选择，默认为蓝色，可选蓝色、红色、绿色、黄色。</li>
+                    <li>单指状态下，食指移动进行绘画，再变为双指时暂停，再变回单指时继续绘画。</li>
+                </ul>
+                <video width="350" height="300" controls="controls">
+                    <source src="static/intro/painter.mp4" type="video/mp4" />
+                </video>
+                    <button type = "button" onclick="return2()">返回</button>
+            </div>
+            <div class="register-box3 hidden" id = "hide3">
+                <h1>形状</h1>
+                <ul>
+                    <li>双指状态下，食指指尖移动到“形状”区域时，可变工具栏部分变为形状选择，由食指指尖进入相应形状区域进行选择，默认为矩形，可选圆形、矩形、椭圆形、任意多边形。完成一个形状的绘画后，回到初始状态。</li>
+                    <li>对于圆形、矩形、椭圆形，选择后初次进入单指状态下，确定形状的一个端点，对角的另一端点随食指指尖移动，再变为双指时确定另一端点，完成形状绘画。</li>
+                    <li>对于任意多边形，单指时，可进行移动食指调整下一个点的位置；变为双指时，确定当前食指指尖位置作为多边形的一个点；若当前多边形的点已经确定完全，需将食指、中指与小拇指伸直，其余弯曲，完成多边形的闭合。</li>
+                </ul>
+              <video width="350" height="300" controls="controls">
+                    <source src="static/intro/shape.mp4" type="video/mp4" />
+                </video>
+                    <button type = "button" onclick="return3()">返回</button>
+            </div>
+            <div class="register-box4 hidden" id = "hide4">
+                <h1>粗细</h1>
+                <ul>
+                    <li>双指状态下，食指指尖移动到“粗细”区域时，可变工具栏部分变为彩笔、形状、文本的线条粗细选择，由食指指尖进入相应形状区域进行选择，默认粗细为15像素，可选5像素、15像素、25像素、35像素。</li>
+                </ul>
+              <video width="350" height="300" controls="controls">
+                    <source src="static/intro/line.mp4" type="video/mp4" />
+                </video>
+                    <button type = "button" onclick="return4()">返回</button>
+            </div>
+            <div class="register-box5 hidden" id = "hide5">
+                <h1>文本</h1>
+                <ul>
+                    <li>双指状态下，食指指尖移动到“文本”区域时，可变工具栏部分变为文本字体的大小选择，由食指指尖进入相应形状区域进行选择，默认大小为2，可选1、2、3、4。</li>
+                    <li>初次变为单指时，有"Enter Here"文本随指尖变化供用户预览效果；变为双指时，确定文本所在位置，"Enter Here"文本消失，进入手写输入状态；与绘画相同，单指时绘画，双指时暂停，食指、中指与小拇指伸直，其余弯曲时，对完成的绘画进行手写识别，识别结果输出在确定的文本位置，此时可以再次变为单指继续输入；当食指、中指与无名指伸直，其余弯曲时，退出手写输入状态。</li>
+                </ul>
+              <video width="400" height="300" controls="controls">
+                    <source src="static/intro/text.mp4" type="video/mp4" />
+                </video>
+                    <button type = "button" onclick="return5()">返回</button>
+            </div>
+            <div class="register-box6 hidden" id = "hide6">
+                <h1>橡皮擦</h1>
+                <ul>
+                    <li>双指状态下，食指指尖移动到“橡皮擦”区域时，可变工具栏部分变为橡皮擦的线条粗细选择，由食指指尖进入相应形状区域进行选择，默认粗细为70像素，可选10像素、30像素、50像素、70像素。</li>
+                    <li>单指状态下，将擦除食指指尖位置的绘画。</li>
+                </ul>
+                              <video width="350" height="300" controls="controls">
+                    <source src="static/intro/ereaser.mp4" type="video/mp4" />
+                </video>
+                    <button type = "button" onclick="return6()">返回</button>
+            </div>
+            <!-- 使用说明书 -->
+            <div class="login-box">
+                <h1>项目简介</h1>
+                    <p>本项目是基于Mediapipe的虚拟画板，仅使用手势的变化和手掌的移动就能以当前摄像头画面为背景进行绘画，可选彩笔线条、矩形、圆形、椭圆形、任意多边形、手写文字输入以及橡皮擦功能，并能调节画笔颜色和粗细，以及文字大小，突破了传统画板对键鼠的需求，使得用户参与度强、体验新奇。</p>
+
+                <a href="execute">
+                        <button>start</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="con-box left">
+            <br/><br/>
+            <h2>欢迎来到 <span>虚拟画板!</span></h2>
+            <p>Welcome to virtual painter!</p>
+            <img src="{{ url_for('static',filename = 'image/left.jpg') }}" alt="">
+
+            <button id="login" onclick = "hide()">查看项目简介</button><br/>
+            <p>开发人员：<span>汪文亮、张家冉、潘希杰、周永林</span></p>
+
+        </div>
+        <div class="con-box right">
+            <br/><br/>
+            <h2>欢迎来到 <span>虚拟画板!</span></h2>
+            <p>Welcome to virtual painter!</p>
+            <img src="{{ url_for('static',filename = 'image/right.jpg') }}" alt="">
+            <button id="register" onclick = "show()">查看使用说明书</button><br/>
+            <p>开发人员：<span>汪文亮、张家冉、潘希杰、周永林</span></p>
+        </div>
+    </div>
+    <script>
+        // 要操作到的元素
+        let login=document.getElementById('login');
+        let register=document.getElementById('register');
+        let form_box=document.getElementsByClassName('form-box')[0];
+        let register_box=document.getElementsByClassName('register-box')[0];
+        let login_box=document.getElementsByClassName('login-box')[0];
+        // 去注册按钮点击事件
+        register.addEventListener('click',()=>{
+            form_box.style.transform='translateX(80%)';
+            login_box.classList.add('hidden');
+            register_box.classList.remove('hidden');
+        })
+        // 去登录按钮点击事件
+        login.addEventListener('click',()=>{
+            form_box.style.transform='translateX(0%)';
+            register_box.classList.add('hidden');
+            login_box.classList.remove('hidden');
+        })
+    </script>
+</body>
+<style>
+    a{
+        text-align: center;
+        width:150px;
+        height:50px;
+    }
+</style>
+</html>

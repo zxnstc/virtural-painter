@@ -1,0 +1,66 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: linear-gradient(200deg,#f3e7e9,#e3eeff);
+}
+
+.container{
+    background-color: #fff;
+    width: 910px;
+    height: 581px;
+    border-radius: 5px;
+    /* 阴影 */
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    /* 相对定位 */
+    position: relative;
+}
+
+.form-box{
+    /* 绝对定位 */
+    position: absolute;
+    top: -10%;
+    left: 25%;
+    background-color: #d3b7d8;
+    width: 448px;
+    height: 700px;
+    border-radius: 5px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    /* 动画过渡 加速后减速 */
+    transition: 0.5s ease-in-out;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 25px;
+    /* 大写 */
+    text-transform: uppercase;
+    color: #fff;
+    /* 字间距 */
+    letter-spacing: 5px;
+}
+
+p{
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #8e9aaf;
+    text-align: center;
+}
+
+span{
+    color: #d3b7d8;
+}
